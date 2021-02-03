@@ -14,9 +14,7 @@ app.use(express.json());
 // app.use("/", require("./"));
 
 app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'hello world !',
-  });
+  res.send('Welcome to Express');
 });
 
 app.listen(PORT, () => {

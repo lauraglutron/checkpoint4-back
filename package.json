@@ -1,7 +1,7 @@
 {
-  "name": "checkpoint4-back",
+  "name": "checkpoint4-back-api",
   "version": "1.2.0",
-  "description": "An express.js API",
+  "description": "An express.js API for the  WCS checkpoint4",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
@@ -19,7 +19,8 @@
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "morgan": "^1.10.0",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "prettier": "^2.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
