@@ -23,10 +23,10 @@ app.get("/", (req, res) => {
 
 // To CREATE a new project
 app.post("/api/projects", (req, res) => {
-  const { title, date, link, description, maintech, id_client } = req.body;
+  const { title, date, link, description, maintech, id_clients } = req.body;
   connection.query(
-    "INSERT INTO projects(title, date, link, description, maintech, id_client) VALUES(?, ?, ?, ?, ?, ?)",
-    [title, date, link, description, maintech, id_client],
+    "INSERT INTO projects(title, date, link, description, maintech, id_clients) VALUES(?, ?, ?, ?, ?, ?)",
+    [title, date, link, description, maintech, id_clients],
     (err, results) => {
       if (err) {
         console.log(err);
@@ -130,7 +130,7 @@ app.put("/api/projects/:id", (req, res) => {
   );
 });
 
-// To UPDATE a project
+// To UPDATE a client
 app.put("/api/clients/:id", (req, res) => {
   const idClient = req.params.id;
   const newClient = req.body;
@@ -160,7 +160,7 @@ app.delete("/api/projects/:id", (req, res) => {
         console.log(err);
         res.status(500).send("😱 Error deleting a project");
       } else {
-        res.sendstatus(200);
+        res.status(200).send("🎉 Project deleted!");
       }
     }
   );
@@ -177,7 +177,7 @@ app.delete("/api/clients/:id", (req, res) => {
         console.log(err);
         res.status(500).send("😱 Error deleting a client");
       } else {
-        res.sendstatus(200);
+        res.status(200).send("🎉 Client deleted!");
       }
     }
   );
