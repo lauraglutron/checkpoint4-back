@@ -1,5 +1,6 @@
 const express = require("express");
 const connection = require("./src/config");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 5000;
 
@@ -12,6 +13,8 @@ connection.connect(function (err) {
     return;
   }
 });
+
+app.use(cors());
 
 // Middleware to read json formatted Body request
 app.use(express.json());
