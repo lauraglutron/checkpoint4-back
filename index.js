@@ -60,14 +60,17 @@ app.post("/api/clients", (req, res) => {
 
 // To READ all the projects
 app.get("/api/projects", (req, res) => {
-  connection.query("SELECT * from projects", (err, results) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send("Error retrieving data");
-    } else {
-      res.status(200).json(results);
+  connection.query(
+    "SELECT p.title, p.date, p.link, p.description, p.maintech, c.name as clients_name from projects p join clients c on c.id=p.id_clients",
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error retrieving data");
+      } else {
+        res.status(200).json(results);
+      }
     }
-  });
+  );
 });
 
 // To READ all the clients
